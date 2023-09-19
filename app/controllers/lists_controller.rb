@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ListsController < ApplicationController
   def index
     @lists = List.all
@@ -5,18 +7,26 @@ class ListsController < ApplicationController
 
   def show
     @list = List.find(params[:id])
+    @movies = @list.movies
+    @bookmark = Bookmark.new
   end
 
   def new
-    @list = List.new(params[:id])
+    @list = List.new
   end
 
   def create
-    @list = List.new(params[:name])
-    if @list.save
-      redirect_to lists_path(@list)
+    @list = List.new(list_params)
+    if @list.save!
+      redirect_to list_path(@list)
     else
       render :new
     end
+  end
+
+  private
+
+  def list_params
+    params.require(:list).permit(:name)
   end
 end
