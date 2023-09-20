@@ -1,18 +1,17 @@
 <h1> Hello form show </h1>
-<div class="container"> 
-<%= @list.name %>
-</div>
-<div class="container">
+
+<h2><%= @list.name %></h2>
+<div>
 <% @movies.each do |movie| %>
-  <%= movie.title  %>
+  <p><%= image_tag movie.poster_url, width:200, height:200 %></p>
+  <h3><%= movie.title  %></h3>
   <%= movie.overview %>
+ <p>rating: <%= movie.rating %></p>
 <% end %>
 </div>
 
-<div class="container">
 <%= simple_form_for [@list, @bookmark ] do |f| %>
   <%= f.input :comment %>
   <%= f.association :movie %>
   <%= f.button :submit, class: "btn btn-primary" %>
 <% end %>
-</div>
