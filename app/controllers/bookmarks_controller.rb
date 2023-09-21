@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class BookmarksController < ApplicationController
-  # def new
-  #   @bookmark = Bookmark.new
-  # end
+  def new
+    @bookmark = Bookmark.new
+  end
 
   def create
     @bookmark = Bookmark.new(bookmark_params)
@@ -16,7 +16,11 @@ class BookmarksController < ApplicationController
     end
   end
 
-  def destroy; end
+  def destroy
+    @bookmark = Bookmark.find(params[:id])
+    @bookmark.destroy
+    redirect_to list_path(@bookmark.list), status: :see_other
+  end
 
   private
 
