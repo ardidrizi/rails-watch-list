@@ -1,24 +1,57 @@
-# README
+# Rails Watch List
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project is a Rails application for managing watch lists.
 
-Things you may want to cover:
+## Ruby Version
 
-* Ruby version
+This project uses Ruby version 3.0.0. Make sure you have the correct Ruby version installed.
 
-* System dependencies
+## System Dependencies
 
-* Configuration
+- Rails 6.1.4
+- PostgreSQL for the database
+- Node.js and Yarn for managing JavaScript dependencies
 
-* Database creation
+## Configuration
 
-* Database initialization
+To set up the project, follow these steps:
 
-* How to run the test suite
+1. Clone the repository:
+   ```sh
+   git clone git@github.com:ardidrizi/rails-watch-list.git
+   cd rails-watch-list
+   ```
 
-* Services (job queues, cache servers, search engines, etc.)
+2. Install dependencies:
+   ```sh
+   bundle install
+   yarn install
+   ```
 
-* Deployment instructions
+3. Set up environment variables (if any).
 
-* ...
+## Database Creation
+
+To create the database, run:
+```sh
+rails db:create
+```
+
+## Database Initialization
+
+To initialize the database, run:
+```sh
+rails db:migrate
+rails db:seed
+```
+
+## How to Run the Test Suite
+
+To run the test suite, use:
+```sh
+rails test
+```
+
+## Services
+
+This project may include additional services such as job queues, cache servers, and search engines.
